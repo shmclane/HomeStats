@@ -25,12 +25,19 @@ struct ContentView: View {
                 .tag(index + 1)
             }
 
+            ProxmoxDashboardView()
+                .tabItem {
+                    Image(systemName: "server.rack")
+                    Text("Proxmox")
+                }
+                .tag(AppConfig.printers.count + 1)
+
             TestDashboardView()
                 .tabItem {
                     Image(systemName: "wrench.and.screwdriver.fill")
                     Text("Test")
                 }
-                .tag(AppConfig.printers.count + 1)
+                .tag(AppConfig.printers.count + 2)
         }
     }
 }

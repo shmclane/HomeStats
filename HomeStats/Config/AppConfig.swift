@@ -14,4 +14,10 @@ enum AppConfig {
         ("DB Galore", "p1s_01p00a3c0500019", "p1s_01p00a3c0500019"),
         ("Boatsy", "boatsy", "p1s_01p09c532500949")  // Boatsy uses different AMS
     ]
+
+    // Proxmox configuration
+    static let proxmoxURL = URL(string: "https://172.16.1.10:8006")!
+    static let proxmoxTokenId = "root@pam!homestats"
+    static let proxmoxToken = "e51da962-628b-42a3-b117-dc34b3faf3ad"
+    static let proxmoxNode = "pm3"
 }

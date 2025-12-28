@@ -18,6 +18,9 @@
 		A1000001230A0009 /* PrinterDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1009 /* PrinterDashboardView.swift */; };
 		A1000001230A000A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A100A /* ContentView.swift */; };
 		A1000001230A000B /* TestDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A100B /* TestDashboardView.swift */; };
+		A1000001230A000C /* ProxmoxModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A100C /* ProxmoxModels.swift */; };
+		A1000001230A000D /* ProxmoxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A100D /* ProxmoxService.swift */; };
+		A1000001230A000E /* ProxmoxDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A100E /* ProxmoxDashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		A1000001230A1009 /* PrinterDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterDashboardView.swift; sourceTree = "<group>"; };
 		A1000001230A100A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A1000001230A100B /* TestDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDashboardView.swift; sourceTree = "<group>"; };
+		A1000001230A100C /* ProxmoxModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxmoxModels.swift; sourceTree = "<group>"; };
+		A1000001230A100D /* ProxmoxService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxmoxService.swift; sourceTree = "<group>"; };
+		A1000001230A100E /* ProxmoxDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxmoxDashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				A1000001230A1003 /* HAEntity.swift */,
+				A1000001230A100C /* ProxmoxModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -87,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				A1000001230A1004 /* HAService.swift */,
+				A1000001230A100D /* ProxmoxService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -99,6 +107,7 @@
 				A1000001230A1006 /* EntityCard.swift */,
 				A1000001230A1008 /* CameraCard.swift */,
 				A1000001230A1009 /* PrinterDashboardView.swift */,
+				A1000001230A100E /* ProxmoxDashboardView.swift */,
 				A1000001230A100B /* TestDashboardView.swift */,
 			);
 			path = Views;
@@ -191,6 +200,9 @@
 				A1000001230A0009 /* PrinterDashboardView.swift in Sources */,
 				A1000001230A000A /* ContentView.swift in Sources */,
 				A1000001230A000B /* TestDashboardView.swift in Sources */,
+				A1000001230A000C /* ProxmoxModels.swift in Sources */,
+				A1000001230A000D /* ProxmoxService.swift in Sources */,
+				A1000001230A000E /* ProxmoxDashboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
