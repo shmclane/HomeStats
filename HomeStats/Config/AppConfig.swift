@@ -20,4 +20,8 @@ enum AppConfig {
     static let proxmoxTokenId = "root@pam!homestats"
     static let proxmoxToken = "e51da962-628b-42a3-b117-dc34b3faf3ad"
     static let proxmoxNode = "pm3"
+
+    // Pi-hole configuration
+    static let piholeURL = URL(string: "http://172.16.1.2")!
+    static let piholePassword = "9CTIgmxpf3cOXkayTg3GHFkuFcc8mY7iuKFabyYK9ZU="
 }

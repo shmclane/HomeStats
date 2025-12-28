@@ -32,12 +32,19 @@ struct ContentView: View {
                 }
                 .tag(AppConfig.printers.count + 1)
 
+            PiholeDashboardView()
+                .tabItem {
+                    Image(systemName: "shield.checkered")
+                    Text("Pi-hole")
+                }
+                .tag(AppConfig.printers.count + 2)
+
             TestDashboardView()
                 .tabItem {
                     Image(systemName: "wrench.and.screwdriver.fill")
                     Text("Test")
                 }
-                .tag(AppConfig.printers.count + 2)
+                .tag(AppConfig.printers.count + 3)
         }
     }
 }
