@@ -85,4 +85,5 @@ enum DashboardEntities {
     static let greenhouseWeather = "weather.forecast_fbf_greenhouse"
     static let heberWeather = "weather.40_52965322226225_111_38917508069427"
     static let bigforkWeather = "weather.forecast_lorang_ln"
+    static let speedtestPing = "sensor.speedtest_ping"
 }

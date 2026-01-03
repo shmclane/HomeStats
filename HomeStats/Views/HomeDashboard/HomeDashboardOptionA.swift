@@ -81,6 +81,16 @@ struct HomeDashboardOptionA: View {
                     StatusPill(icon: "thermometer", text: "\(Int(temp))°", color: .orange)
                 }
 
+                if let ping = service.internetPing {
+                    StatusPill(
+                        icon: "wifi",
+                        text: "\(Int(ping))ms",
+                        color: ping < 50 ? .green : (ping < 100 ? .yellow : .red)
+                    )
+                } else {
+                    StatusPill(icon: "wifi.slash", text: "Offline", color: .red)
+                }
+
                 if anyLightsOn {
                     let onCount = service.mainHouseLights.filter { $0.isOn }.count
                     StatusPill(icon: "lightbulb.fill", text: "\(onCount) on", color: .yellow)

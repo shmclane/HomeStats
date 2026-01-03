@@ -2,7 +2,7 @@ import Foundation
 
 enum AppConfig {
     static let haURL = URL(string: "http://172.16.1.9:8123")!
-    static let haToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxYWFhMGFiYjZkMmQ0OTdlYmI5N2NjYWZlZDdkZDI3MSIsImlhdCI6MTc2Njg4NzA5NSwiZXhwIjoyMDgyMjQ3MDk1fQ.QU1dBDeU7M_JM5pwAa1u-zMhWkPkCamtcCimDT1F65c"
+    static let haToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiMGUxNTQwYTczZGM0MGU2YTY5YjY3ZDI3Zjg3NzhlYiIsImlhdCI6MTc2NzQ2Njg0MSwiZXhwIjoyMDgyODI2ODQxfQ.DLk1CNzqLY3aT2xNgbstUqYShpRuj_gWd-A_cMnsUQ4"
     static let refreshInterval: TimeInterval = 10
 
     // Entity filters for main dashboard - set to nil to show all

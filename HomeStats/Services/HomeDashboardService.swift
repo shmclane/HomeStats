@@ -9,6 +9,7 @@ class HomeDashboardService: ObservableObject {
     @Published var greenhouseWeather: WeatherData?
     @Published var heberWeather: WeatherData?
     @Published var bigforkWeather: WeatherData?
+    @Published var internetPing: Double?
     @Published var mainHouseLights: [LightGroup] = []
     @Published var barnLights: [LightGroup] = []
     @Published var isLoading = false
@@ -47,6 +48,7 @@ class HomeDashboardService: ObservableObject {
             parseGarageCamera()
             parseTemperatures()
             parseWeather()
+            parseInternet()
             parseLights()
 
             lastUpdated = Date()
@@ -102,6 +104,13 @@ class HomeDashboardService: ObservableObject {
            let state = entity["state"] as? String,
            let attrs = entity["attributes"] as? [String: Any] {
             bigforkWeather = WeatherData.from(state: state, attributes: attrs, location: "Bigfork")
+        }
+    }
+
+    private func parseInternet() {
+        if let entity = getState(for: DashboardEntities.speedtestPing),
+           let state = entity["state"] as? String {
+            internetPing = Double(state)
         }
     }
 

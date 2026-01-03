@@ -12,6 +12,13 @@ struct ContentView: View {
                 }
                 .tag(0)
 
+            MediaDashboardView()
+                .tabItem {
+                    Image(systemName: "play.tv.fill")
+                    Text("Media")
+                }
+                .tag(1)
+
             ForEach(Array(AppConfig.printers.enumerated()), id: \.offset) { index, printer in
                 PrinterDashboardView(
                     printerName: printer.name,
@@ -22,7 +29,7 @@ struct ContentView: View {
                     Image(systemName: "printer.fill")
                     Text(printer.name)
                 }
-                .tag(index + 1)
+                .tag(index + 2)
             }
 
             ProxmoxDashboardView()
@@ -30,21 +37,21 @@ struct ContentView: View {
                     Image(systemName: "server.rack")
                     Text("Proxmox")
                 }
-                .tag(AppConfig.printers.count + 1)
+                .tag(AppConfig.printers.count + 2)
 
             PiholeDashboardView()
                 .tabItem {
                     Image(systemName: "shield.checkered")
                     Text("Pi-hole")
                 }
-                .tag(AppConfig.printers.count + 2)
+                .tag(AppConfig.printers.count + 3)
 
             TestDashboardView()
                 .tabItem {
                     Image(systemName: "wrench.and.screwdriver.fill")
                     Text("Test")
                 }
-                .tag(AppConfig.printers.count + 3)
+                .tag(AppConfig.printers.count + 4)
         }
     }
 }
