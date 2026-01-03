@@ -24,6 +24,12 @@
 		A1000001230A000F /* PiholeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A100F /* PiholeModels.swift */; };
 		A1000001230A0010 /* PiholeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1010 /* PiholeService.swift */; };
 		A1000001230A0011 /* PiholeDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1011 /* PiholeDashboardView.swift */; };
+		A1000001230A0012 /* HomeDashboardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1012 /* HomeDashboardModels.swift */; };
+		A1000001230A0013 /* HomeDashboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1013 /* HomeDashboardService.swift */; };
+		A1000001230A0014 /* HomeDashboardComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1014 /* HomeDashboardComponents.swift */; };
+		A1000001230A0015 /* HomeDashboardOptionA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1015 /* HomeDashboardOptionA.swift */; };
+		A1000001230A0016 /* HomeDashboardOptionB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1016 /* HomeDashboardOptionB.swift */; };
+		A1000001230A0017 /* HomeDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1017 /* HomeDashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +51,12 @@
 		A1000001230A100F /* PiholeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeModels.swift; sourceTree = "<group>"; };
 		A1000001230A1010 /* PiholeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeService.swift; sourceTree = "<group>"; };
 		A1000001230A1011 /* PiholeDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeDashboardView.swift; sourceTree = "<group>"; };
+		A1000001230A1012 /* HomeDashboardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardModels.swift; sourceTree = "<group>"; };
+		A1000001230A1013 /* HomeDashboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardService.swift; sourceTree = "<group>"; };
+		A1000001230A1014 /* HomeDashboardComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardComponents.swift; sourceTree = "<group>"; };
+		A1000001230A1015 /* HomeDashboardOptionA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardOptionA.swift; sourceTree = "<group>"; };
+		A1000001230A1016 /* HomeDashboardOptionB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardOptionB.swift; sourceTree = "<group>"; };
+		A1000001230A1017 /* HomeDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				A1000001230A1003 /* HAEntity.swift */,
+				A1000001230A1012 /* HomeDashboardModels.swift */,
 				A1000001230A100F /* PiholeModels.swift */,
 				A1000001230A100C /* ProxmoxModels.swift */,
 			);
@@ -101,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				A1000001230A1004 /* HAService.swift */,
+				A1000001230A1013 /* HomeDashboardService.swift */,
 				A1000001230A1010 /* PiholeService.swift */,
 				A1000001230A100D /* ProxmoxService.swift */,
 			);
@@ -110,6 +124,7 @@
 		A1000001230A3005 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1000001230A3006 /* HomeDashboard */,
 				A1000001230A100A /* ContentView.swift */,
 				A1000001230A1005 /* DashboardView.swift */,
 				A1000001230A1006 /* EntityCard.swift */,
@@ -120,6 +135,17 @@
 				A1000001230A100B /* TestDashboardView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A1000001230A3006 /* HomeDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				A1000001230A1014 /* HomeDashboardComponents.swift */,
+				A1000001230A1015 /* HomeDashboardOptionA.swift */,
+				A1000001230A1016 /* HomeDashboardOptionB.swift */,
+				A1000001230A1017 /* HomeDashboardView.swift */,
+			);
+			path = HomeDashboard;
 			sourceTree = "<group>";
 		};
 		A1000001230A3010 /* Products */ = {
@@ -215,6 +241,12 @@
 				A1000001230A000F /* PiholeModels.swift in Sources */,
 				A1000001230A0010 /* PiholeService.swift in Sources */,
 				A1000001230A0011 /* PiholeDashboardView.swift in Sources */,
+				A1000001230A0012 /* HomeDashboardModels.swift in Sources */,
+				A1000001230A0013 /* HomeDashboardService.swift in Sources */,
+				A1000001230A0014 /* HomeDashboardComponents.swift in Sources */,
+				A1000001230A0015 /* HomeDashboardOptionA.swift in Sources */,
+				A1000001230A0016 /* HomeDashboardOptionB.swift in Sources */,
+				A1000001230A0017 /* HomeDashboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
