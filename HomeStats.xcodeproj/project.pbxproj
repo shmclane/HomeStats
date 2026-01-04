@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		225113E42F0A181B00DB5B13 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225113E22F0A181B00DB5B13 /* SettingsView.swift */; };
+		225113EA2F0A184700DB5B13 /* ConfigSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225113E72F0A184700DB5B13 /* ConfigSyncManager.swift */; };
+		225113EB2F0A184700DB5B13 /* HomeStatsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225113E52F0A184700DB5B13 /* HomeStatsConfig.swift */; };
+		225113F22F0A19C100DB5B13 /* HomeStatsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225113E52F0A184700DB5B13 /* HomeStatsConfig.swift */; };
+		225113F32F0A19CA00DB5B13 /* ConfigSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225113E72F0A184700DB5B13 /* ConfigSyncManager.swift */; };
 		A1000001230A0001 /* HomeStatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1001 /* HomeStatsApp.swift */; };
 		A1000001230A0002 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1002 /* AppConfig.swift */; };
 		A1000001230A0003 /* HAEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001230A1003 /* HAEntity.swift */; };
@@ -37,6 +42,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		225113B92F0A140D00DB5B13 /* HomeStatsCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeStatsCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		225113E02F0A178200DB5B13 /* HomeStats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeStats.entitlements; sourceTree = "<group>"; };
+		225113E22F0A181B00DB5B13 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		225113E52F0A184700DB5B13 /* HomeStatsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsConfig.swift; sourceTree = "<group>"; };
+		225113E72F0A184700DB5B13 /* ConfigSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSyncManager.swift; sourceTree = "<group>"; };
 		A1000001230A1000 /* HomeStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1000001230A1001 /* HomeStatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsApp.swift; sourceTree = "<group>"; };
 		A1000001230A1002 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -67,7 +77,19 @@
 		A1000001230A101B /* MediaDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		225113BA2F0A140D00DB5B13 /* HomeStatsCompanion */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = HomeStatsCompanion; sourceTree = "<group>"; };
+		225113DF2F0A147400DB5B13 /* Shared */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shared; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		225113B62F0A140D00DB5B13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1000001230A2001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,10 +100,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		225113E32F0A181B00DB5B13 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				225113E22F0A181B00DB5B13 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		225113E62F0A184700DB5B13 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				225113E52F0A184700DB5B13 /* HomeStatsConfig.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		225113E82F0A184700DB5B13 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				225113E72F0A184700DB5B13 /* ConfigSyncManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		225113E92F0A184700DB5B13 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				225113E62F0A184700DB5B13 /* Models */,
+				225113E82F0A184700DB5B13 /* Services */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		A1000001230A3000 = {
 			isa = PBXGroup;
 			children = (
+				225113DF2F0A147400DB5B13 /* Shared */,
 				A1000001230A3001 /* HomeStats */,
+				225113BA2F0A140D00DB5B13 /* HomeStatsCompanion */,
 				A1000001230A3010 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +146,8 @@
 		A1000001230A3001 /* HomeStats */ = {
 			isa = PBXGroup;
 			children = (
+				225113E92F0A184700DB5B13 /* Shared */,
+				225113E02F0A178200DB5B13 /* HomeStats.entitlements */,
 				A1000001230A1001 /* HomeStatsApp.swift */,
 				A1000001230A3002 /* Config */,
 				A1000001230A3003 /* Models */,
@@ -135,6 +194,7 @@
 		A1000001230A3005 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				225113E32F0A181B00DB5B13 /* Settings */,
 				A1000001230A3006 /* HomeDashboard */,
 				A1000001230A3007 /* MediaDashboard */,
 				A1000001230A100A /* ContentView.swift */,
@@ -172,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				A1000001230A1000 /* HomeStats.app */,
+				225113B92F0A140D00DB5B13 /* HomeStatsCompanion.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,6 +240,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		225113B82F0A140D00DB5B13 /* HomeStatsCompanion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 225113C32F0A140E00DB5B13 /* Build configuration list for PBXNativeTarget "HomeStatsCompanion" */;
+			buildPhases = (
+				225113B52F0A140D00DB5B13 /* Sources */,
+				225113B62F0A140D00DB5B13 /* Frameworks */,
+				225113B72F0A140D00DB5B13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				225113BA2F0A140D00DB5B13 /* HomeStatsCompanion */,
+				225113DF2F0A147400DB5B13 /* Shared */,
+			);
+			name = HomeStatsCompanion;
+			packageProductDependencies = (
+			);
+			productName = HomeStatsCompanion;
+			productReference = 225113B92F0A140D00DB5B13 /* HomeStatsCompanion.app */;
+			productType = "com.apple.product-type.application";
+		};
 		A1000001230A4000 /* HomeStats */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1000001230A6000 /* Build configuration list for PBXNativeTarget "HomeStats" */;
@@ -190,6 +274,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				225113DF2F0A147400DB5B13 /* Shared */,
 			);
 			name = HomeStats;
 			productName = HomeStats;
@@ -203,9 +290,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					225113B82F0A140D00DB5B13 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
 					A1000001230A4000 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -225,11 +315,19 @@
 			projectRoot = "";
 			targets = (
 				A1000001230A4000 /* HomeStats */,
+				225113B82F0A140D00DB5B13 /* HomeStatsCompanion */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		225113B72F0A140D00DB5B13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1000001230A4002 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,6 +339,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		225113B52F0A140D00DB5B13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225113F32F0A19CA00DB5B13 /* ConfigSyncManager.swift in Sources */,
+				225113F22F0A19C100DB5B13 /* HomeStatsConfig.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1000001230A4001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,6 +362,8 @@
 				A1000001230A0009 /* PrinterDashboardView.swift in Sources */,
 				A1000001230A000A /* ContentView.swift in Sources */,
 				A1000001230A000B /* TestDashboardView.swift in Sources */,
+				225113EA2F0A184700DB5B13 /* ConfigSyncManager.swift in Sources */,
+				225113EB2F0A184700DB5B13 /* HomeStatsConfig.swift in Sources */,
 				A1000001230A000C /* ProxmoxModels.swift in Sources */,
 				A1000001230A000D /* ProxmoxService.swift in Sources */,
 				A1000001230A000E /* ProxmoxDashboardView.swift in Sources */,
@@ -266,6 +375,7 @@
 				A1000001230A0014 /* HomeDashboardComponents.swift in Sources */,
 				A1000001230A0015 /* HomeDashboardOptionA.swift in Sources */,
 				A1000001230A0016 /* HomeDashboardOptionB.swift in Sources */,
+				225113E42F0A181B00DB5B13 /* SettingsView.swift in Sources */,
 				A1000001230A0017 /* HomeDashboardView.swift in Sources */,
 				A1000001230A0018 /* MediaConfig.swift in Sources */,
 				A1000001230A0019 /* MediaModels.swift in Sources */,
@@ -277,6 +387,76 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		225113C12F0A140E00DB5B13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HomeStatsCompanion/HomeStatsCompanion.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GV4JW24U38;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knophy.HomeStats.Companion.HomeStatsCompanion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		225113C22F0A140E00DB5B13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HomeStatsCompanion/HomeStatsCompanion.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GV4JW24U38;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.knophy.HomeStats.Companion.HomeStatsCompanion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A1000001230A7001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -405,6 +585,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HomeStats/HomeStats.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -429,6 +610,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HomeStats/HomeStats.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -451,6 +633,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		225113C32F0A140E00DB5B13 /* Build configuration list for PBXNativeTarget "HomeStatsCompanion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				225113C12F0A140E00DB5B13 /* Debug */,
+				225113C22F0A140E00DB5B13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A1000001230A6000 /* Build configuration list for PBXNativeTarget "HomeStats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

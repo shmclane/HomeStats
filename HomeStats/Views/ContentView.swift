@@ -1,10 +1,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var syncManager = ConfigSyncManager.shared
     @State private var selectedTab = 0
+
+    private var isGeekMode: Bool {
+        syncManager.config.appMode == .geek
+    }
 
     var body: some View {
         TabView(selection: $selectedTab) {
+            // Always show: Home & Media
             HomeDashboardView()
                 .tabItem {
                     Image(systemName: "house.fill")
@@ -19,39 +25,49 @@ struct ContentView: View {
                 }
                 .tag(1)
 
-            ForEach(Array(AppConfig.printers.enumerated()), id: \.offset) { index, printer in
-                PrinterDashboardView(
-                    printerName: printer.name,
-                    printerId: printer.id,
-                    amsId: printer.amsId
-                )
-                .tabItem {
-                    Image(systemName: "printer.fill")
-                    Text(printer.name)
+            // Geek mode only: Printers, Proxmox, Pi-hole, Test, Settings
+            if isGeekMode {
+                ForEach(Array(AppConfig.printers.enumerated()), id: \.offset) { index, printer in
+                    PrinterDashboardView(
+                        printerName: printer.name,
+                        printerId: printer.id,
+                        amsId: printer.amsId
+                    )
+                    .tabItem {
+                        Image(systemName: "printer.fill")
+                        Text(printer.name)
+                    }
+                    .tag(index + 2)
                 }
-                .tag(index + 2)
+
+                ProxmoxDashboardView()
+                    .tabItem {
+                        Image(systemName: "server.rack")
+                        Text("Proxmox")
+                    }
+                    .tag(AppConfig.printers.count + 2)
+
+                PiholeDashboardView()
+                    .tabItem {
+                        Image(systemName: "shield.checkered")
+                        Text("Pi-hole")
+                    }
+                    .tag(AppConfig.printers.count + 3)
+
+                TestDashboardView()
+                    .tabItem {
+                        Image(systemName: "wrench.and.screwdriver.fill")
+                        Text("Test")
+                    }
+                    .tag(AppConfig.printers.count + 4)
+
+                SettingsView()
+                    .tabItem {
+                        Image(systemName: "gearshape.fill")
+                        Text("Settings")
+                    }
+                    .tag(AppConfig.printers.count + 5)
             }
-
-            ProxmoxDashboardView()
-                .tabItem {
-                    Image(systemName: "server.rack")
-                    Text("Proxmox")
-                }
-                .tag(AppConfig.printers.count + 2)
-
-            PiholeDashboardView()
-                .tabItem {
-                    Image(systemName: "shield.checkered")
-                    Text("Pi-hole")
-                }
-                .tag(AppConfig.printers.count + 3)
-
-            TestDashboardView()
-                .tabItem {
-                    Image(systemName: "wrench.and.screwdriver.fill")
-                    Text("Test")
-                }
-                .tag(AppConfig.printers.count + 4)
         }
     }
 }
