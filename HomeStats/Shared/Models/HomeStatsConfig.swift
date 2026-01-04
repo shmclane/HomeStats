@@ -9,6 +9,7 @@ enum AppMode: String, Codable, CaseIterable {
 
 struct HomeStatsConfig: Codable, Equatable {
     var appMode: AppMode = .wife
+    var allowInsecureCerts: Bool = false
     var homeAssistant: HomeAssistantConfig?
     var plex: PlexConfig?
     var sonarr: ServiceConfig?
@@ -20,6 +21,7 @@ struct HomeStatsConfig: Codable, Equatable {
 
     init(
         appMode: AppMode = .wife,
+        allowInsecureCerts: Bool = false,
         homeAssistant: HomeAssistantConfig? = nil,
         plex: PlexConfig? = nil,
         sonarr: ServiceConfig? = nil,
@@ -30,6 +32,7 @@ struct HomeStatsConfig: Codable, Equatable {
         printers: [PrinterConfig] = []
     ) {
         self.appMode = appMode
+        self.allowInsecureCerts = allowInsecureCerts
         self.homeAssistant = homeAssistant
         self.plex = plex
         self.sonarr = sonarr

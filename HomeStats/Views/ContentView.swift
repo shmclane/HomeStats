@@ -60,14 +60,15 @@ struct ContentView: View {
                         Text("Test")
                     }
                     .tag(AppConfig.printers.count + 4)
-
-                SettingsView()
-                    .tabItem {
-                        Image(systemName: "gearshape.fill")
-                        Text("Settings")
-                    }
-                    .tag(AppConfig.printers.count + 5)
             }
+
+            // Always show Settings so user can switch modes
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "gearshape.fill")
+                    Text("Settings")
+                }
+                .tag(isGeekMode ? AppConfig.printers.count + 5 : 2)
         }
     }
 }

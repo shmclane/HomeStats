@@ -90,6 +90,14 @@ struct ServiceListView: View {
                     Label("Add Printer", systemImage: "plus.circle")
                 }
             }
+
+            Section {
+                Toggle("Allow Self-Signed Certificates", isOn: $syncManager.config.allowInsecureCerts)
+            } header: {
+                Text("Security")
+            } footer: {
+                Text("Enable this for local servers with self-signed SSL certificates (e.g., Proxmox)")
+            }
         }
         .navigationTitle("HomeStats Setup")
         .toolbar {

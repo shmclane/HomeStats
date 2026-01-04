@@ -152,9 +152,35 @@ class ConfigSyncManager: ObservableObject {
     }
 }
 
+// MARK: - Insecure URLSession for Self-Signed Certs
+
+class InsecureURLSessionDelegate: NSObject, URLSessionDelegate {
+    func urlSession(
+        _ session: URLSession,
+        didReceive challenge: URLAuthenticationChallenge,
+        completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
+    ) {
+        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
+           let serverTrust = challenge.protectionSpace.serverTrust {
+            let credential = URLCredential(trust: serverTrust)
+            completionHandler(.useCredential, credential)
+        } else {
+            completionHandler(.performDefaultHandling, nil)
+        }
+    }
+}
+
 // MARK: - Connection Testing
 
 extension ConfigSyncManager {
+    private var urlSession: URLSession {
+        if config.allowInsecureCerts {
+            let delegate = InsecureURLSessionDelegate()
+            return URLSession(configuration: .default, delegate: delegate, delegateQueue: nil)
+        }
+        return URLSession.shared
+    }
+
     func testConnection(for service: ServiceType) async -> Result<String, Error> {
         switch service {
         case .homeAssistant:
@@ -184,7 +210,7 @@ extension ConfigSyncManager {
         request.timeoutInterval = 10
 
         do {
-            let (_, response) = try await URLSession.shared.data(for: request)
+            let (_, response) = try await urlSession.data(for: request)
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 return .success("Connected to Home Assistant")
             }
@@ -204,7 +230,7 @@ extension ConfigSyncManager {
         request.timeoutInterval = 10
 
         do {
-            let (_, response) = try await URLSession.shared.data(for: request)
+            let (_, response) = try await urlSession.data(for: request)
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 return .success("Connected to Plex")
             }
@@ -224,7 +250,7 @@ extension ConfigSyncManager {
         request.timeoutInterval = 10
 
         do {
-            let (_, response) = try await URLSession.shared.data(for: request)
+            let (_, response) = try await urlSession.data(for: request)
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 return .success("Connected to Sonarr")
             }
@@ -244,7 +270,7 @@ extension ConfigSyncManager {
         request.timeoutInterval = 10
 
         do {
-            let (_, response) = try await URLSession.shared.data(for: request)
+            let (_, response) = try await urlSession.data(for: request)
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 return .success("Connected to Radarr")
             }
@@ -267,7 +293,7 @@ extension ConfigSyncManager {
         ]
 
         do {
-            let (_, response) = try await URLSession.shared.data(from: components.url!)
+            let (_, response) = try await urlSession.data(from: components.url!)
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 return .success("Connected to SABnzbd")
             }
@@ -287,7 +313,7 @@ extension ConfigSyncManager {
         request.timeoutInterval = 10
 
         do {
-            let (_, response) = try await URLSession.shared.data(for: request)
+            let (_, response) = try await urlSession.data(for: request)
             if let httpResponse = response as? HTTPURLResponse, (200...401).contains(httpResponse.statusCode) {
                 return .success("Proxmox server reachable")
             }
@@ -306,7 +332,7 @@ extension ConfigSyncManager {
         request.timeoutInterval = 10
 
         do {
-            let (_, response) = try await URLSession.shared.data(for: request)
+            let (_, response) = try await urlSession.data(for: request)
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 return .success("Connected to Pi-hole")
             }
