@@ -8,6 +8,8 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: 40) {
                 headerView
 
+                modePickerSection
+
                 VStack(alignment: .leading, spacing: 24) {
                     ServiceStatusSection(title: "Smart Home", services: [
                         (.homeAssistant, syncManager.config.homeAssistant != nil)
@@ -51,6 +53,44 @@ struct SettingsView: View {
 
             Text("Configure services using the HomeStats Companion app on your iPhone")
                 .font(.callout)
+                .foregroundColor(.secondary)
+        }
+        .padding(.horizontal, 48)
+    }
+
+    private var modePickerSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            HStack {
+                Image(systemName: "switch.2")
+                    .foregroundColor(.blue)
+                Text("Display Mode")
+                    .font(.headline)
+            }
+
+            HStack(spacing: 20) {
+                ForEach(AppMode.allCases, id: \.self) { mode in
+                    Button {
+                        syncManager.config.appMode = mode
+                        syncManager.save()
+                    } label: {
+                        VStack(spacing: 8) {
+                            Image(systemName: mode == .wife ? "house.fill" : "gearshape.2.fill")
+                                .font(.title2)
+                            Text(mode.rawValue)
+                                .font(.callout)
+                        }
+                        .frame(width: 200, height: 80)
+                        .background(syncManager.config.appMode == mode ? Color.blue : Color.gray.opacity(0.3))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+
+            Text(syncManager.config.appMode == .wife
+                 ? "Shows Home and Media tabs only"
+                 : "Shows all tabs including Printers, Proxmox, Pi-hole, and Settings")
+                .font(.caption)
                 .foregroundColor(.secondary)
         }
         .padding(.horizontal, 48)

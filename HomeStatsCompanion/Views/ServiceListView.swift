@@ -5,21 +5,6 @@ struct ServiceListView: View {
 
     var body: some View {
         List {
-            Section {
-                Picker("App Mode", selection: $syncManager.config.appMode) {
-                    ForEach(AppMode.allCases, id: \.self) { mode in
-                        Text(mode.rawValue).tag(mode)
-                    }
-                }
-                .pickerStyle(.segmented)
-            } header: {
-                Text("Display Mode")
-            } footer: {
-                Text(syncManager.config.appMode == .wife
-                     ? "Shows Home and Media tabs only"
-                     : "Shows all tabs including Printers, Proxmox, Pi-hole, and Settings")
-            }
-
             Section("Smart Home") {
                 NavigationLink {
                     HomeAssistantFormView()
